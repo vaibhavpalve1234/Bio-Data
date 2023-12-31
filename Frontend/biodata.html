@@ -35,19 +35,25 @@
                 <h2>Personal Information:</h2>
                 <div class="details-content">
                     <ul class="details-list">
-                        <li><span class="icon"><i class="fas fa-male"></i></span><strong>Name:&nbsp; </strong> Ketan Adinath
+                        <li><span class="icon"><i class="fas fa-male"></i></span><strong>Name:&nbsp; </strong> Ketan
+                            Adinath
                             Palve</li>
                         <li><span class="icon"><i class="fas fa-birthday-cake"></i></span><strong>Date of Birth:&nbsp;
                             </strong> 10 September 1996
                         </li>
-                        <li><span class="icon"><i class="far fa-clock"></i></span><strong>Birth Time: &nbsp;</strong> 10:12 AM
+                        <li><span class="icon"><i class="far fa-clock"></i></span><strong>Birth Time: &nbsp;</strong>
+                            10:12 AM
                         </li>
-                        <li><span class="icon"><i class="fas fa-weight"></i></span><strong>Weight:&nbsp; </strong> 70 kg</li>
-                        <li><span class="icon"><i class="fas fa-arrows-alt-v"></i></span><strong>Height: &nbsp;</strong> 175
+                        <li><span class="icon"><i class="fas fa-weight"></i></span><strong>Weight:&nbsp; </strong> 70 kg
+                        </li>
+                        <li><span class="icon"><i class="fas fa-arrows-alt-v"></i></span><strong>Height: &nbsp;</strong>
+                            175
                             cm</li>
-                        <li><span class="icon"><i class="fas fa-tint"></i></span><strong>Blood Group: &nbsp;</strong> O+ve
+                        <li><span class="icon"><i class="fas fa-tint"></i></span><strong>Blood Group: &nbsp;</strong>
+                            O+ve
                         </li>
-                        <li><span class="icon"><i class="fas fa-palette"></i></span><strong>Complexion: &nbsp;</strong> Fair
+                        <li><span class="icon"><i class="fas fa-palette"></i></span><strong>Complexion: &nbsp;</strong>
+                            Fair
                         </li>
                         <li><span class="icon"><i class="fas fa-map-marker-alt"></i></span><strong>Place of Birth:&nbsp;
                             </strong> Panagramal
@@ -63,7 +69,8 @@
                 </div>
                 <h2>Professional Information</h2>
                 <ul class="details-list">
-                    <li><span class="icon"><i class="fas fa-graduation-cap"></i></span><strong>Education: &nbsp;</strong>
+                    <li><span class="icon"><i class="fas fa-graduation-cap"></i></span><strong>Education:
+                            &nbsp;</strong>
                         Mechanical Engineer
                     </li>
                     <li><span class="icon"><i class="fas fa-building"></i></span><strong>Company Name: &nbsp;</strong>
@@ -77,18 +84,21 @@
                 </ul>
                 <h2>Family Information:</h2>
                 <ul class="family-list">
-                    <li><span class="icon"><i class="fas fa-male"></i></span><strong>Father Name:&nbsp;</strong> Adinath Arjun
+                    <li><span class="icon"><i class="fas fa-male"></i></span><strong>Father Name:&nbsp;</strong> Adinath
+                        Arjun
                         Palve</li>
                     <li><span class="icon"><i class="fas fa-briefcase"></i></span> <strong>Occupation:&nbsp; </strong>
                         Transport Tempo</li>
                     <li><span class="icon"><i class="fas fa-female" aria-hidden="true"></i></span><strong>Mother
                             Name: &nbsp;</strong> Sheela Adinath Palve
                     </li>
-                    <li><span class="icon"><i class="fas fa-user-circle"></i></span><strong>Younger Brother:&nbsp; </strong>
+                    <li><span class="icon"><i class="fas fa-user-circle"></i></span><strong>Younger Brother:&nbsp;
+                        </strong>
                         Vaibhav Adinath Palve </li>
                     <li><span class="icon"><i class="fas fa-user-circle"></i></span><strong>GrandFather:&nbsp; </strong>
                         Ramdash avhad</li>
-                    <li><span class="icon"><i class="fas fa-user-circle"></i></span><strong>Mama:&nbsp; </strong> Ganpat avhad
+                    <li><span class="icon"><i class="fas fa-user-circle"></i></span><strong>Mama:&nbsp; </strong> Ganpat
+                        avhad
                         / sopan avhad</li>
                     <li> <span class="icon"> <i class="fas fa-address-card"></i></span>
                         <strong>Residential:&nbsp; </strong>302 Sai Mere Galaxy, Near Shiv Sena Shakha, Santosh Nagar,
@@ -109,10 +119,10 @@
             const element = document.getElementById('pdf-content');
             const pdfOptions = {
                 margin: 1,
-                filename: 'Ketans_Bio_Data.pdf',
-                image: { type: 'jpeg', quality: 2 },
+                filename: 'Ketan_Bio_Data.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2 },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait', height: 100 }
+                jsPDF: { unit: 'cm', format: 'letter', orientation: 'portrait' }// use 'mm' into unit if you want to make small text or box size 
             };
 
             html2pdf(element, pdfOptions);
