@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ketan's Bio Data</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.js"></script>
+</head>
+
+<body>
+    <div class="mainBody">
+        <section class="details-container" id="pdf-content">
+            <article class="details">
+                <div class="row">
+                    <div class="col">
+                        <div class="center-image">
+                            <img src="./icon.jpg" alt="no image" class="lordimage">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h2>Contact Numbers:&nbsp;</h2>
+                        <ul>
+                            <li><span class="icon"><i class="fas fa-phone"></i></span><strong>Personal:&nbsp;
+                                </strong>9095967000
+                            </li>
+                            <li><span class="icon"><i class="fas fa-phone"></i></span><strong>Family: &nbsp;</strong><a
+                                    href="https://wa.me/7776090314?text=hey, whats`up"> 7776090314</a> / <a
+                                    href="tel:9270838201">9270838201</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <h2>Personal Information:</h2>
+                <div class="details-content">
+                    <ul class="details-list">
+                        <li><span class="icon"><i class="fas fa-male"></i></span><strong>Name:&nbsp; </strong> Ketan Adinath
+                            Palve</li>
+                        <li><span class="icon"><i class="fas fa-birthday-cake"></i></span><strong>Date of Birth:&nbsp;
+                            </strong> 10 September 1996
+                        </li>
+                        <li><span class="icon"><i class="far fa-clock"></i></span><strong>Birth Time: &nbsp;</strong> 10:12 AM
+                        </li>
+                        <li><span class="icon"><i class="fas fa-weight"></i></span><strong>Weight:&nbsp; </strong> 70 kg</li>
+                        <li><span class="icon"><i class="fas fa-arrows-alt-v"></i></span><strong>Height: &nbsp;</strong> 175
+                            cm</li>
+                        <li><span class="icon"><i class="fas fa-tint"></i></span><strong>Blood Group: &nbsp;</strong> O+ve
+                        </li>
+                        <li><span class="icon"><i class="fas fa-palette"></i></span><strong>Complexion: &nbsp;</strong> Fair
+                        </li>
+                        <li><span class="icon"><i class="fas fa-map-marker-alt"></i></span><strong>Place of Birth:&nbsp;
+                            </strong> Panagramal
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <div class="center-image">
+                                <img src="./Ketan.jpeg" alt="Profile Image" class="ketan-image">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <h2>Professional Information</h2>
+                <ul class="details-list">
+                    <li><span class="icon"><i class="fas fa-graduation-cap"></i></span><strong>Education: &nbsp;</strong>
+                        Mechanical Engineer
+                    </li>
+                    <li><span class="icon"><i class="fas fa-building"></i></span><strong>Company Name: &nbsp;</strong>
+                        Tech mahendra
+                    </li>
+                    <li><span class="icon"><i class="fas fa-briefcase"></i></span><strong>Occupation:&nbsp; </strong>
+                        System Engineer U2</li>
+                    <li><span class="icon"><i class="fas fa-map-marker-alt"></i></span><strong>Work Location:&nbsp;
+                        </strong> Navi Mumbai
+                    </li>
+                </ul>
+                <h2>Family Information:</h2>
+                <ul class="family-list">
+                    <li><span class="icon"><i class="fas fa-male"></i></span><strong>Father Name:&nbsp;</strong> Adinath Arjun
+                        Palve</li>
+                    <li><span class="icon"><i class="fas fa-briefcase"></i></span> <strong>Occupation:&nbsp; </strong>
+                        Transport Tempo</li>
+                    <li><span class="icon"><i class="fas fa-female" aria-hidden="true"></i></span><strong>Mother
+                            Name: &nbsp;</strong> Sheela Adinath Palve
+                    </li>
+                    <li><span class="icon"><i class="fas fa-user-circle"></i></span><strong>Younger Brother:&nbsp; </strong>
+                        Vaibhav Adinath Palve </li>
+                    <li><span class="icon"><i class="fas fa-user-circle"></i></span><strong>GrandFather:&nbsp; </strong>
+                        Ramdash avhad</li>
+                    <li><span class="icon"><i class="fas fa-user-circle"></i></span><strong>Mama:&nbsp; </strong> Ganpat avhad
+                        / sopan avhad</li>
+                    <li> <span class="icon"> <i class="fas fa-address-card"></i></span>
+                        <strong>Residential:&nbsp; </strong>302 Sai Mere Galaxy, Near Shiv Sena Shakha, Santosh Nagar,
+                        Ulhasnagar-3
+                    </li>
+                    <li> <span class="icon"> <i class="fas fa-address-card"></i> </span>
+                        <strong>Village: &nbsp;</strong>Kolhar ,Taluka Pathardi ,District Ahmednagar
+                    </li>
+                </ul>
+            </article>
+        </section>
+    </div>
+    <footer class="footer">
+        <button onclick="downloadAsPDF()">Download</button>
+    </footer>
+    <script>
+        function downloadAsPDF() {
+            const element = document.getElementById('pdf-content');
+            const pdfOptions = {
+                margin: 1,
+                filename: 'Ketans_Bio_Data.pdf',
+                image: { type: 'jpeg', quality: 2 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait', height: 100 }
+            };
+
+            html2pdf(element, pdfOptions);
+        }
+    </script>
+</body>
+
+</html>
