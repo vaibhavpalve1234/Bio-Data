@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Bio Data</title>
+    <link rel="stylesheet" href="/styles/form.css">
+</head>
+
+<body>
+    <h1>Update Bio Data</h1>
+    <form action="/update-bio" method="POST" enctype="multipart/form-data">
+        <h2>Personal Information</h2>
+        <label for="personalInfo[name]">Bride Full Name:</label>
+        <input type="text" id="personalInfo[name]" name="personalInfo[name]" value="<%= bio.personalInfo.name %>" required><br>
+
+        <label for="personalInfo[dob]">Date of Birth:</label>
+        <input type="date" id="personalInfo[dob]" name="personalInfo[dob]" value="<%= bio.personalInfo.dob %>" required><br>
+
+        <label for="personalInfo[birthTime]">Birth Time:</label>
+        <input type="time" id="personalInfo[birthTime]" name="personalInfo[birthTime]" value="<%= bio.personalInfo.birthTime %>" required><br>
+
+        <label for="personalInfo[weight]">Weight:</label>
+        <input type="text" id="personalInfo[weight]" name="personalInfo[weight]" value="<%= bio.personalInfo.weight %>" required><br>
+
+        <label for="personalInfo[height]">Height (in cm):</label>
+        <input type="text" id="personalInfo[height]" name="personalInfo[height]" value="<%= bio.personalInfo.height %>" required><br>
+
+        <label for="personalInfo[bloodGroup]">Blood Group:</label>
+        <select id="personalInfo[bloodGroup]" name="personalInfo[bloodGroup]" required>
+            <option value="">Select Blood Group</option>
+            <option value="O+" <%=bio.personalInfo.bloodGroup==='O+' ? 'selected' : '' %>>O+</option>
+            <option value="O-" <%=bio.personalInfo.bloodGroup==='O-' ? 'selected' : '' %>>O-</option>
+            <option value="A+" <%=bio.personalInfo.bloodGroup==='A+' ? 'selected' : '' %>>A+</option>
+            <option value="A-" <%=bio.personalInfo.bloodGroup==='A-' ? 'selected' : '' %>>A-</option>
+            <option value="B+" <%=bio.personalInfo.bloodGroup==='B+' ? 'selected' : '' %>>B+</option>
+            <option value="B-" <%=bio.personalInfo.bloodGroup==='B-' ? 'selected' : '' %>>B-</option>
+            <option value="AB+" <%=bio.personalInfo.bloodGroup==='AB+' ? 'selected' : '' %>>AB+</option>
+            <option value="AB-" <%=bio.personalInfo.bloodGroup==='AB-' ? 'selected' : '' %>>AB-</option>
+        </select><br>
+
+        <label for="personalInfo[complexion]">Complexion:</label>
+        <select id="personalInfo[complexion]" name="personalInfo[complexion]" required>
+            <option value="">Select complexion</option>
+            <option value="fair" <%=bio.personalInfo.complexion==='fair' ? 'selected' : '' %>>Fair</option>
+            <option value="medium" <%=bio.personalInfo.complexion==='medium' ? 'selected' : '' %>>Medium</option>
+            <option value="dark" <%=bio.personalInfo.complexion==='dark' ? 'selected' : '' %>>Dark</option>
+            <option value="very-fair" <%=bio.personalInfo.complexion==='very-fair' ? 'selected' : '' %>>Very Fair</option>
+            <option value="light" <%=bio.personalInfo.complexion==='light' ? 'selected' : '' %>>Light</option>
+            <option value="tan" <%=bio.personalInfo.complexion==='tan' ? 'selected' : '' %>>Tan</option>
+            <option value="olive" <%=bio.personalInfo.complexion==='olive' ? 'selected' : '' %>>Olive</option>
+            <option value="brown" <%=bio.personalInfo.complexion==='brown' ? 'selected' : '' %>>Brown</option>
+            <option value="black" <%=bio.personalInfo.complexion==='black' ? 'selected' : '' %>>Black</option>
+        </select><br>
+
+        <label for="personalInfo[maritalStatus]">Marital Status:</label>
+        <select id="personalInfo[maritalStatus]" name="personalInfo[maritalStatus]" required>
+            <option value="">Select your marital status</option>
+            <option value="single" <%=bio.personalInfo.maritalStatus==='single' ? 'selected' : '' %>>Single</option>
+            <option value="married" <%=bio.personalInfo.maritalStatus==='married' ? 'selected' : '' %>>Married</option>
+            <option value="divorced" <%=bio.personalInfo.maritalStatus==='divorced' ? 'selected' : '' %>>Divorced</option>
+            <option value="widowed" <%=bio.personalInfo.maritalStatus==='widowed' ? 'selected' : '' %>>Widowed</option>
+        </select><br>
+
+        <label for="personalInfo[placeOfBirth]">Place of Birth:</label>
+        <input type="text" id="personalInfo[placeOfBirth]" name="personalInfo[placeOfBirth]"
+        value="<%= bio.personalInfo.placeOfBirth %>" required><br>
+        <!-- <input type="text" id="personalInfo[placeOfBirth]" name="personalInfo[placeOfBirth]"
+            value="<%= bio.personalInfo.placeOfBirth %>" required onclick="showEarth()"><br> -->
+
+        <!-- 3D Globe Container -->
+        <div id="earthModal">
+            <div id="modalContent">
+                <span id="modalClose">&times;</span>
+                <div id="cesiumContainer"></div>
+            </div>
+        </div>
+
+        <!-- Hidden Additional Sections -->
+        <div id="more-info" class="hidden">
+            <h2>Contact Information</h2>
+            <label for="contacts[family][number]">Family Contact Number:</label>
+            <input type="text" id="contacts[family][number]" name="contacts[family][number]"
+                value="<%= bio.contacts.family.number %>" required><br>
+
+            <label for="contacts[personal][number]">Personal Contact Number:</label>
+            <input type="text" id="contacts[personal][number]" name="contacts[personal][number]"
+                value="<%= bio.contacts.personal.number %>" required><br>
+
+            <h2>Professional Information</h2>
+            <label for="professionalInfo[education]">Education:</label>
+            <input type="text" id="professionalInfo[education]" name="professionalInfo[education]"
+                value="<%= bio.professionalInfo.education %>" required><br>
+
+            <label for="professionalInfo[companyName]">Company Name:</label>
+            <input type="text" id="professionalInfo[companyName]" name="professionalInfo[companyName]"
+                value="<%= bio.professionalInfo.companyName %>" required><br>
+
+            <label for="professionalInfo[occupation]">Occupation:</label>
+            <input type="text" id="professionalInfo[occupation]" name="professionalInfo[occupation]"
+                value="<%= bio.professionalInfo.occupation %>" required><br>
+
+            <label for="professionalInfo[workLocation]">Work Location:</label>
+            <input type="text" id="professionalInfo[workLocation]" name="professionalInfo[workLocation]"
+                value="<%= bio.professionalInfo.workLocation %>" required><br>
+
+            <h2>Family Information</h2>
+            <label for="familyInfo[fatherName]">Father's Name:</label>
+            <input type="text" id="familyInfo[fatherName]" name="familyInfo[fatherName]"
+                value="<%= bio.familyInfo.fatherName %>" required><br>
+
+            <label for="familyInfo[fatherOccupation]">Father's Occupation:</label>
+            <input type="text" id="familyInfo[fatherOccupation]" name="familyInfo[fatherOccupation]"
+                value="<%= bio.familyInfo.fatherOccupation %>" required><br>
+
+            <label for="familyInfo[motherName]">Mother's Name:</label>
+            <input type="text" id="familyInfo[motherName]" name="familyInfo[motherName]"
+                value="<%= bio.familyInfo.motherName %>" required><br>
+
+            <label for="familyInfo[motherOccupation]">Mother's Occupation:</label>
+            <input type="text" id="familyInfo[motherOccupation]" name="familyInfo[motherOccupation]"
+                value="<%= bio.familyInfo.motherOccupation %>" required><br>
+
+            <label for="familyInfo[brothers]">Number of Brothers:</label>
+            <input type="number" id="familyInfo[brothers]" name="familyInfo[brothers]"
+                value="<%= bio.familyInfo.brothers %>" required><br>
+
+            <label for="familyInfo[sisters]">Number of Sisters:</label>
+            <input type="number" id="familyInfo[sisters]" name="familyInfo[sisters]"
+                value="<%= bio.familyInfo.sisters %>" required><br>
+        </div>
+
+        <button type="button" id="show-more-btn">Show More</button>
+        <button type="submit">Update Bio Data</button>
+    </form>
+
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.88/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.88/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <script>
+        // Initialize the Cesium viewer
+        function initCesium() {
+            Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3NGJkN2VmNC1mMGI5LTRjYTEtYjQxNC1iYjZkMDFlMmJiNWEiLCJpZCI6MjM4MjE4LCJpYXQiOjE3MjUxMDM3ODJ9.91TW5ehCHDLEMbrptivJKPj_qNIsI4g4wmQSio7zIyc'; 
+            var viewer = new Cesium.Viewer('cesiumContainer', {
+                terrainProviderViewModels: Cesium.createDefaultTerrainProviderViewModels(),
+                selectedTerrainProviderViewModel: Cesium.createDefaultTerrainProviderViewModels()[0],
+                imageryProviderViewModels: Cesium.createDefaultImageryProviderViewModels(),
+                selectedImageryProviderViewModel: Cesium.createDefaultImageryProviderViewModels()[0]
+            });
+
+            viewer.scene.globe.enableLighting = true;
+
+            // Handle click events to update place of birth
+            viewer.scene.canvas.addEventListener('click', function (event) {
+                var pickedObject = viewer.scene.pick(event.clientX, event.clientY);
+
+                if (Cesium.defined(pickedObject)) {
+                    var position = viewer.scene.camera.pickEllipsoid(event.clientX, event.clientY);
+                    if (position) {
+                        var cartographic = Cesium.Cartographic.fromCartesian(position);
+                        var latitude = Cesium.Math.toDegrees(cartographic.latitude);
+                        var longitude = Cesium.Math.toDegrees(cartographic.longitude);
+                        document.getElementById('personalInfo[placeOfBirth]').value = `${latitude.toFixed(2)}, ${longitude.toFixed(2)}`;
+                    }
+                }
+            });
+        }
+
+        // Show modal and initialize Cesium
+        function showEarth() {
+            document.getElementById('earthModal').style.display = 'block';
+            initCesium();
+        }
+
+        // Close the modal
+        document.getElementById('modalClose').addEventListener('click', function () {
+            document.getElementById('earthModal').style.display = 'none';
+        });
+
+        // Close modal if clicking outside of the content
+        window.onclick = function (event) {
+            if (event.target === document.getElementById('earthModal')) {
+                document.getElementById('earthModal').style.display = 'none';
+            }
+        };
+
+        // Show/hide additional sections
+        document.getElementById('show-more-btn').addEventListener('click', function () {
+            var moreInfo = document.getElementById('more-info');
+            if (moreInfo.classList.contains('hidden')) {
+                moreInfo.classList.remove('hidden');
+                this.textContent = 'Show Less';
+            } else {
+                moreInfo.classList.add('hidden');
+                this.textContent = 'Show More';
+            }
+        });
+    </script>
+</body>
+
+</html>
