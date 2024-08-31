@@ -10,6 +10,11 @@ body {
     justify-content: flex-start;
     align-items: center;
     height: 100vh;
+    background-image: url('https://th.bing.com/th/id/OIG3.b3IV7YagksJ585rIUUFr?w=1024&h=1024&rs=1&pid=ImgDetMain');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 /* Main Container */
@@ -22,13 +27,18 @@ form {
     width: 100%;
     margin-top: 20px;
     position: relative;
+    background-image: url('https://img.freepik.com/premium-photo/elegant-floral-wedding-backdrop-wallpaper_756748-2486.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 /* Form Title */
 h1 {
     text-align: center;
     font-size: 28px;
-    color: #333;
+    color: #000000;
     margin: 20px 0;
     width: 100%;
 }
@@ -36,7 +46,7 @@ h1 {
 /* Section Titles */
 h2 {
     font-size: 22px;
-    color: #555;
+    color: #000000;
     margin-bottom: 15px;
     border-bottom: 2px solid #ddd;
     padding-bottom: 10px;
@@ -312,17 +322,20 @@ select:focus {
     border-color: #0062cc;
 }
 
-.btn-primary:focus, .btn-primary.focus {
+.btn-primary:focus,
+.btn-primary.focus {
     box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }
 
-.btn-primary:active, .btn-primary.active {
+.btn-primary:active,
+.btn-primary.active {
     color: #fff;
     background-color: #0062cc;
     border-color: #005cbf;
 }
 
-.btn-primary:disabled, .btn-primary.disabled {
+.btn-primary:disabled,
+.btn-primary.disabled {
     opacity: 0.65;
     cursor: not-allowed;
     background-color: #007bff;
@@ -330,11 +343,13 @@ select:focus {
 }
 
 /* Additional styling for button focus and active states */
-.btn:focus, .btn.focus {
+.btn:focus,
+.btn.focus {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }
 
-.btn:active, .btn.active {
+.btn:active,
+.btn.active {
     background-image: none;
 }
