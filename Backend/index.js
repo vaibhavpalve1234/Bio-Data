@@ -28,7 +28,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 let bioData = {
-    name: '',
     godImage:"",
     profileImages: "", 
     personalInfo: {
@@ -79,7 +78,6 @@ app.get('/show-bio', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    console.log(bioData);
     res.render('form', { bio: bioData });
 });
 
