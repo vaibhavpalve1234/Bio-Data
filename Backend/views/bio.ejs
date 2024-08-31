@@ -1,170 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= bio.personalInfo.name %>'s Bio Data</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
-    <link rel="stylesheet" href="/styles/style.css">
-</head>
+    <link rel="stylesheet" href="/styles/style.css" />
+  </head>
 
-<body>
+  <body>
     <div class="mainBody">
-        <section class="details-container" id="pdf-content">
-            <article class="details">
-                <div class="row">
-                    <div class="col">
-                        <div class="center-image">
-                            <img src="/photos/icon.jpg" alt="God Image" class="lordimage">
-                        </div>
-                    </div>
-                    <div class="col">
-                        <h2>Contact Numbers:</h2>
-                        <ul>
-                            <% if (bio.contacts.family) { %>
-                                <li><span class="icon"><i class="fas fa-phone"></i></span><strong>Family: </strong>
-                                    <a href="tel:<%= bio.contacts.family.number %>" style="color: black; text-decoration: none;">
-                                        <%= bio.contacts.family.number %>
-                                    </a>
-                                </li>
-                            <% } %>
-                            <% if (bio.contacts.personal) { %>
-                                <li><span class="icon"><i class="fas fa-phone"></i></span><strong>Personal: </strong>
-                                    <a href="tel:<%= bio.contacts.personal.number %>" style="color: black; text-decoration: none;">
-                                        <%= bio.contacts.personal.number %>
-                                    </a>
-                                </li>
-                            <% } %>
-                        </ul>
-                    </div>
-                </div>
+      <section class="details-container" id="pdf-content">
+        <article class="details">
+          <div class="row">
+            <div class="col">
+              <div class="center-image">
+                <img src="/photos/icon.jpg" alt="God Image" class="lordimage" />
+              </div>
+            </div>
+            <div class="col">
+              <h2>Contact Numbers:</h2>
+              <ul>
+                <% if (bio.contacts.family) { %>
+                <li>
+                  <span class="icon"><i class="fas fa-phone"></i></span
+                  ><strong>Family: </strong>
+                  <a
+                    href="tel:<%= bio.contacts.family.number %>"
+                    style="color: black; text-decoration: none"
+                  >
+                    <%= bio.contacts.family.number %>
+                  </a>
+                </li>
+                <% } %> <% if (bio.contacts.personal) { %>
+                <li>
+                  <span class="icon"><i class="fas fa-phone"></i></span
+                  ><strong>Personal: </strong>
+                  <a
+                    href="tel:<%= bio.contacts.personal.number %>"
+                    style="color: black; text-decoration: none"
+                  >
+                    <%= bio.contacts.personal.number %>
+                  </a>
+                </li>
+                <% } %>
+              </ul>
+            </div>
+          </div>
 
-                <h2>Personal Information:</h2>
-                <div class="details-content row">
-                    <div class="col">
-                        <ul class="details-list">
-                            <li><span class="icon"><i class="fas fa-male"></i></span><strong>Name: </strong>
-                                <%= bio.personalInfo.name %>
-                            </li>
-                            <li><span class="icon"><i class="fas fa-birthday-cake"></i></span><strong>Date of Birth: </strong>
-                                <%= bio.personalInfo.dob %>
-                            </li>
-                            <li><span class="icon"><i class="far fa-clock"></i></span><strong>Birth Time: </strong>
-                                <%= bio.personalInfo.birthTime %>
-                            </li>
-                            <li><span class="icon"><i class="fas fa-weight"></i></span><strong>Weight: </strong>
-                                <%= bio.personalInfo.weight %>
-                            </li>
-                            <li><span class="icon"><i class="fas fa-arrows-alt-v"></i></span><strong>Height: </strong>
-                                <%= bio.personalInfo.height %>
-                            </li>
-                            <li><span class="icon"><i class="fas fa-tint"></i></span><strong>Blood Group: </strong>
-                                <%= bio.personalInfo.bloodGroup %>
-                            </li>
-                            <li><span class="icon"><i class="fas fa-palette"></i></span><strong>Complexion: </strong>
-                                <%= bio.personalInfo.complexion %>
-                            </li>
-                            <li><span class="icon"><i class="fas fa-map-marker-alt"></i></span><strong>Place of Birth: </strong>
-                                <%= bio.personalInfo.placeOfBirth %>
-                            </li>
-                            <li><span class="icon"><i class="fas fa-heart"></i></span><strong>Marital Status: </strong>
-                                <%= bio.personalInfo.maritalStatus %>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <div class="center-image-1">
-                            <img src="/photos/<%= bio.profileImages %>" alt="Profile Image" class="Profile-image">
-                        </div>
-                    </div>
-                </div>
+          <h2>Personal Information:</h2>
+          <div class="details-content row">
+            <div class="col">
+              <ul class="details-list">
+                <li>
+                  <span class="icon"><i class="fas fa-male"></i></span
+                  ><strong>Name: </strong>
+                  <%= bio.personalInfo.name %>
+                </li>
+                <li>
+                  <span class="icon"><i class="fas fa-birthday-cake"></i></span
+                  ><strong>Date of Birth: </strong>
+                  <%= bio.personalInfo.dob %>
+                </li>
+                <li>
+                  <span class="icon"><i class="far fa-clock"></i></span
+                  ><strong>Birth Time: </strong>
+                  <%= bio.personalInfo.birthTime %>
+                </li>
+                <li>
+                  <span class="icon"><i class="fas fa-weight"></i></span
+                  ><strong>Weight: </strong>
+                  <%= bio.personalInfo.weight %>
+                </li>
+                <li>
+                  <span class="icon"><i class="fas fa-arrows-alt-v"></i></span
+                  ><strong>Height: </strong>
+                  <%= bio.personalInfo.height %>
+                </li>
+                <li>
+                  <span class="icon"><i class="fas fa-tint"></i></span
+                  ><strong>Blood Group: </strong>
+                  <%= bio.personalInfo.bloodGroup %>
+                </li>
+                <li>
+                  <span class="icon"><i class="fas fa-palette"></i></span
+                  ><strong>Complexion: </strong>
+                  <%= bio.personalInfo.complexion %>
+                </li>
+                <li>
+                  <span class="icon"><i class="fas fa-map-marker-alt"></i></span
+                  ><strong>Place of Birth: </strong>
+                  <%= bio.personalInfo.placeOfBirth %>
+                </li>
+                <li>
+                  <span class="icon"><i class="fas fa-heart"></i></span
+                  ><strong>Marital Status: </strong>
+                  <%= bio.personalInfo.maritalStatus %>
+                </li>
+              </ul>
+            </div>
+            <div class="col">
+              <div class="center-image-1">
+                <img
+                  src="/photos/<%= bio.profileImages %>"
+                  alt="Profile Image"
+                  class="Profile-image"
+                />
+              </div>
+            </div>
+          </div>
 
-                <h2>Professional Information:</h2>
-                <ul class="details-list">
-                    <li><span class="icon"><i class="fas fa-graduation-cap"></i></span><strong>Education: </strong>
-                        <%= bio.professionalInfo.education %>
-                    </li>
-                    <li><span class="icon"><i class="fas fa-building"></i></span><strong>Company Name: </strong>
-                        <%= bio.professionalInfo.companyName %>
-                    </li>
-                    <li><span class="icon"><i class="fas fa-briefcase"></i></span><strong>Occupation: </strong>
-                        <%= bio.professionalInfo.occupation %>
-                    </li>
-                    <li><span class="icon"><i class="fas fa-map-marker-alt"></i></span><strong>Work Location: </strong>
-                        <%= bio.professionalInfo.workLocation %>
-                    </li>
-                </ul>
+          <h2>Professional Information:</h2>
+          <ul class="details-list">
+            <li>
+              <span class="icon"><i class="fas fa-graduation-cap"></i></span
+              ><strong>Education: </strong>
+              <%= bio.professionalInfo.education %>
+            </li>
+            <li>
+              <span class="icon"><i class="fas fa-building"></i></span
+              ><strong>Company Name: </strong>
+              <%= bio.professionalInfo.companyName %>
+            </li>
+            <li>
+              <span class="icon"><i class="fas fa-briefcase"></i></span
+              ><strong>Occupation: </strong>
+              <%= bio.professionalInfo.occupation %>
+            </li>
+            <li>
+              <span class="icon"><i class="fas fa-map-marker-alt"></i></span
+              ><strong>Work Location: </strong>
+              <%= bio.professionalInfo.workLocation %>
+            </li>
+          </ul>
 
-                <h2>Family Information:</h2>
-                <ul class="family-list">
-                    <li><span class="icon"><i class="fas fa-male"></i></span><strong>Father's Name: </strong>
-                        <%= bio.familyInfo.fatherName %>
+          <h2>Family Information:</h2>
+          <ul class="family-list">
+            <li>
+              <span class="icon"><i class="fas fa-male"></i></span
+              ><strong>Father's Name: </strong>
+              <%= bio.familyInfo.fatherName %>
+            </li>
+            <li>
+              <span class="icon"><i class="fas fa-briefcase"></i></span
+              ><strong>Occupation: </strong>
+              <%= bio.familyInfo.fatherOccupation %>
+            </li>
+            <li>
+              <span class="icon"><i class="fas fa-female"></i></span
+              ><strong>Mother's Name: </strong>
+              <%= bio.familyInfo.motherName %>
+            </li>
+            <li>
+                <span class="icon"><i class="fas fa-briefcase"></i></span
+                ><strong>Occupation: </strong>
+                <%= bio.familyInfo.fatherOccupation %>
+              </li>
+            <% Object.keys(bio.familyInfo).forEach(key => { %>
+                <% if (key.startsWith('brother')) { %>
+                    <li>
+                        <span class="icon"><i class="fas fa-user-circle"></i></span>
+                        <strong>Brother <%= key.replace('brother', '') %>: </strong>
+                        Name: <%= bio.familyInfo[key].name %>, 
+                        Age: <%= bio.familyInfo[key].ageRelation %>, 
+                        Married: <%= bio.familyInfo[key].maritalStatus %>
                     </li>
-                    <li><span class="icon"><i class="fas fa-briefcase"></i></span><strong>Occupation: </strong>
-                        <%= bio.familyInfo.fatherOccupation %>
+                <% } %>
+            <% }) %>
+        
+            <!-- Display Sisters -->
+            <% Object.keys(bio.familyInfo).forEach(key => { %>
+                <% if (key.startsWith('sister')) { %>
+                    <li>
+                        <span class="icon"><i class="fas fa-user-circle"></i></span>
+                        <strong>Sister <%= key.replace('sister', '') %>: </strong>
+                        Name: <%= bio.familyInfo[key].name %>, 
+                        Age: <%= bio.familyInfo[key].ageRelation %>, 
+                        Married: <%= bio.familyInfo[key].maritalStatus %>
                     </li>
-                    <li><span class="icon"><i class="fas fa-female"></i></span><strong>Mother's Name: </strong>
-                        <%= bio.familyInfo.motherName %>
-                    </li>
-                    <li><span class="icon"><i class="fas fa-user-circle"></i></span><strong>Older Brother: </strong>
-                        <%= bio.familyInfo.olderBrother %>
-                    </li>
-                    <li><span class="icon"><i class="fas fa-user-circle"></i></span><strong>Grandfather: </strong>
-                        <%= bio.familyInfo.grandfather %>
-                    </li>
-                    <li><span class="icon"><i class="fas fa-address-card"></i></span><strong>Residential Address: </strong>
-                        <%= bio.familyInfo.residentialAddress %>
-                    </li>
-                    <li><span class="icon"><i class="fas fa-address-card"></i></span><strong>Village: </strong>
-                        <%= bio.familyInfo.village %>
-                    </li>
-                </ul>
+                <% } %>
+            <% }) %>
+            <li>
+              <span class="icon"><i class="fas fa-user-circle"></i></span
+              ><strong>Grandfather: </strong>
+              <%= bio.familyInfo.grandfather %>
+            </li>
+            <li>
+              <span class="icon"><i class="fas fa-address-card"></i></span
+              ><strong>Residential Address: </strong>
+              <%= bio.familyInfo.residentialAddress %>
+            </li>
+            <li>
+              <span class="icon"><i class="fas fa-address-card"></i></span
+              ><strong>Village: </strong>
+              <%= bio.familyInfo.village %>
+            </li>
+          </ul>
 
-                <h2>Personal Preferences and Hobbies:</h2>
-                <ul class="details-list">
-                    <li><span class="icon"><i class="fas fa-music"></i></span><strong>Hobbies: </strong>
-                        <%= bio.preferences.hobbies %>
-                    </li>
-                    <li><span class="icon"><i class="fas fa-heart"></i></span><strong>Favorite Activities: </strong>
-                        <%= bio.preferences.favoriteActivities %>
-                    </li>
-                    <li><span class="icon"><i class="fas fa-language"></i></span><strong>Languages Known: </strong>
-                        <%= bio.preferences.languagesKnown %>
-                    </li>
-                </ul>
-
-            </article>
-        </section>
+          <h2>Personal Preferences and Hobbies:</h2>
+          <ul class="details-list">
+            <li>
+              <span class="icon"><i class="fas fa-music"></i></span
+              ><strong>Hobbies: </strong>
+              <%= bio.preferences.hobbies %>
+            </li>
+            <li>
+              <span class="icon"><i class="fas fa-heart"></i></span
+              ><strong>Favorite Activities: </strong>
+              <%= bio.preferences.favoriteActivities %>
+            </li>
+            <li>
+              <span class="icon"><i class="fas fa-language"></i></span
+              ><strong>Languages Known: </strong>
+              <%= bio.preferences.languagesKnown %>
+            </li>
+          </ul>
+        </article>
+      </section>
     </div>
     <footer class="footer">
-        <button onclick="downloadAsPDF()">Download</button>
+      <button onclick="downloadAsPDF()">Download</button>
     </footer>
     <script>
-        function downloadAsPDF() {
-            const element = document.getElementById('pdf-content');
-            const options = {
-                margin: [1, 1, 1, 1],
-                filename: '<%= bio.personalInfo.name %>_Bio_Data.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, allowTaint: false, imageTimeout: 1500, logging: true, useCORS: false },
-                jsPDF: { unit: 'cm', format: 'a4', orientation: 'portrait' }
-            };
+      function downloadAsPDF() {
+        const element = document.getElementById("pdf-content");
+        const options = {
+          margin: [1, 1, 1, 1],
+          filename: "<%= bio.personalInfo.name %>_Bio_Data.pdf",
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: {
+            scale: 2,
+            allowTaint: false,
+            imageTimeout: 1500,
+            logging: true,
+            useCORS: false,
+          },
+          jsPDF: { unit: "cm", format: "a4", orientation: "portrait" },
+        };
 
-            html2pdf().from(element).set(options).toPdf().get('pdf').then(function (pdf) {
-                const pageHeight = pdf.internal.pageSize.height * 2;
-                const contentHeight = element.offsetHeight * 2;
-                const scale = Math.min(pageHeight / contentHeight, 1);
+        html2pdf()
+          .from(element)
+          .set(options)
+          .toPdf()
+          .get("pdf")
+          .then(function (pdf) {
+            const pageHeight = pdf.internal.pageSize.height * 2;
+            const contentHeight = element.offsetHeight * 2;
+            const scale = Math.min(pageHeight / contentHeight, 1);
 
-                if (scale < 1) {
-                    pdf.internal.scaleFactor = scale;
-                }
+            if (scale < 1) {
+              pdf.internal.scaleFactor = scale;
+            }
 
-                pdf.save(options.filename);
-            });
-        }
+            pdf.save(options.filename);
+          });
+      }
     </script>
-</body>
-
+  </body>
 </html>

@@ -60,7 +60,7 @@ let bioData = {
         fatherName: '',
         fatherOccupation: '',
         motherName: '',
-        olderBrother: '',
+        fatherOccupation:'',
         grandfather: '',
         residentialAddress: '',
         village: ''

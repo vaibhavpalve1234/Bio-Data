@@ -154,9 +154,36 @@
             <input type="text" id="familyInfo[motherName]" name="familyInfo[motherName]"
                 value="<%= bio.familyInfo.motherName %>" required><br>
 
-            <label for="familyInfo[olderBrother]">Older Brother:</label>
-            <input type="text" id="familyInfo[olderBrother]" name="familyInfo[olderBrother]"
-                value="<%= bio.familyInfo.olderBrother %>" required><br>
+            <label for="familyInfo[fatherOccupation]">Father's Occupation:</label>
+            <input type="text" id="familyInfo[fatherOccupation]" name="familyInfo[fatherOccupation]"
+                value="<%= bio.familyInfo.fatherOccupation %>" required><br>
+            <!-- Existing fields -->
+
+            <label for="numberOfBrothers">Number of Brothers:</label>
+            <select id="numberOfBrothers" name="numberOfBrothers" onchange="updateBrothersFields()">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <!-- Add more options as needed -->
+            </select><br>
+
+            <div id="brothers-container">
+                <!-- Dynamic brother fields will be added here -->
+            </div>
+            <label for="numberOfSisters">Number of Sisters:</label>
+            <select id="numberOfSisters" name="numberOfSisters" onchange="updateSistersFields()">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select><br>
+
+            <div id="sisters-container">
+                <!-- Dynamic sister fields will be added here -->
+            </div>
 
             <label for="familyInfo[grandfather]">Grandfather:</label>
             <input type="text" id="familyInfo[grandfather]" name="familyInfo[grandfather]"
@@ -172,6 +199,7 @@
 
             <button type="button" id="show-preferences-btn">Show Personal Preferences</button>
         </div>
+
 
         <!-- Personal Preferences and Hobbies Section -->
         <div id="preferences-info" class="section hidden">
@@ -249,6 +277,92 @@
 
         // Initially hide all sections except the first one
         hideAllSections();
+        function updateBrothersFields() {
+            const numberOfBrothers = parseInt(document.getElementById('numberOfBrothers').value);
+            const container = document.getElementById('brothers-container');
+
+            container.innerHTML = '';
+
+            for (let i = 1; i <= numberOfBrothers; i++) {
+                const label = document.createElement('label');
+                label.setAttribute('for', `familyInfo[brother${i}][name]`);
+                label.textContent = `Brother ${i}:`;
+
+                const inputName = document.createElement('input');
+                inputName.setAttribute('type', 'text');
+                inputName.setAttribute('id', `familyInfo[brother${i}][name]`);
+                inputName.setAttribute('name', `familyInfo[brother${i}][name]`);
+                inputName.setAttribute('placeholder', 'Name');
+                inputName.setAttribute('required', '');
+
+                const selectAge = document.createElement('select');
+                selectAge.setAttribute('id', `familyInfo[brother${i}][ageRelation]`);
+                selectAge.setAttribute('name', `familyInfo[brother${i}][ageRelation]`);
+                selectAge.innerHTML = `
+                    <option value="older">Older</option>
+                    <option value="younger">Younger</option>
+                `;
+
+                const selectMaritalStatus = document.createElement('select');
+                selectMaritalStatus.setAttribute('id', `familyInfo[brother${i}][maritalStatus]`);
+                selectMaritalStatus.setAttribute('name', `familyInfo[brother${i}][maritalStatus]`);
+                selectMaritalStatus.innerHTML = `
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                `;
+
+                container.appendChild(label);
+                container.appendChild(inputName);
+                container.appendChild(selectAge);
+                container.appendChild(selectMaritalStatus);
+                container.appendChild(document.createElement('br'));
+            }
+        }
+
+        function updateSistersFields() {
+            const numberOfSisters = parseInt(document.getElementById('numberOfSisters').value);
+            const container = document.getElementById('sisters-container');
+
+            container.innerHTML = '';
+
+            for (let i = 1; i <= numberOfSisters; i++) {
+                const label = document.createElement('label');
+                label.setAttribute('for', `familyInfo[sister${i}][name]`);
+                label.textContent = `Sister ${i}:`;
+
+                const inputName = document.createElement('input');
+                inputName.setAttribute('type', 'text');
+                inputName.setAttribute('id', `familyInfo[sister${i}][name]`);
+                inputName.setAttribute('name', `familyInfo[sister${i}][name]`);
+                inputName.setAttribute('placeholder', 'Name');
+                inputName.setAttribute('required', '');
+
+                const selectAge = document.createElement('select');
+                selectAge.setAttribute('id', `familyInfo[sister${i}][ageRelation]`);
+                selectAge.setAttribute('name', `familyInfo[sister${i}][ageRelation]`);
+                selectAge.innerHTML = `
+                    <option value="older">Older</option>
+                    <option value="younger">Younger</option>
+                `;
+
+                const selectMaritalStatus = document.createElement('select');
+                selectMaritalStatus.setAttribute('id', `familyInfo[sister${i}][maritalStatus]`);
+                selectMaritalStatus.setAttribute('name', `familyInfo[sister${i}][maritalStatus]`);
+                selectMaritalStatus.innerHTML = `
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                `;
+
+                container.appendChild(label);
+                container.appendChild(inputName);
+                container.appendChild(selectAge);
+                container.appendChild(selectMaritalStatus);
+                container.appendChild(document.createElement('br'));
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', updateBrothersFields);
+        document.addEventListener('DOMContentLoaded', updateSistersFields);
     </script>
 </body>
 
