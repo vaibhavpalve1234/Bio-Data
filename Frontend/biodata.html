@@ -12,12 +12,12 @@
 
 <body>
     <div class="mainBody">
-        <section class="details-container" id="pdf-content">
+        <section class="details-container" id="pdf-content" >
             <article class="details">
                 <div class="row">
                     <div class="col">
                         <div class="center-image">
-                            <img src="./icon.jpg" alt="Profile Image" class="lordimage">
+                            <img src="./photos/icon.jpg" alt="Profile Image" class="lordimage">
                         </div>
                     </div>
                     <div class="col">
@@ -58,7 +58,7 @@
                     </div>
                     <div class="col">
                         <div class="center-image-1">
-                            <img src="./vaibhav.jpg" alt="Profile Image" class="ketan-image">
+                            <img src="./photos/vaibhav.jpg" alt="Profile Image" class="ketan-image">
                         </div>
                     </div>
                 </div>
@@ -99,13 +99,10 @@
                         Dancing, Hiking, Yoga</li>
                     <li><span class="icon"><i class="fas fa-heart"></i></span><strong>Favorite Activities:
                         </strong>Travelling, Swimming</li>
-                </ul>
-
-                <h2>Additional Information:</h2>
-                <ul class="details-list">
                     <li><span class="icon"><i class="fas fa-language"></i></span><strong>Languages Known:
                         </strong>Marathi, Hindi, English</li>
                 </ul>
+
             </article>
         </section>
     </div>
@@ -116,16 +113,16 @@
         function downloadAsPDF() {
             const element = document.getElementById('pdf-content');
             const options = {
-                margin: [0, 0, 0, 0],
+                margin: [1, 1, 1, 1],
                 filename: 'Ketan_Bio_Data.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, backgroundColor: null },
+                html2canvas: { scale: 2, allowTaint: false, imageTimeout: 1500, logging: true, useCORS: false },
                 jsPDF: { unit: 'cm', format: 'a4', orientation: 'portrait' }
             };
 
             html2pdf().from(element).set(options).toPdf().get('pdf').then(function (pdf) {
-                const pageHeight = pdf.internal.pageSize.height;
-                const contentHeight = element.offsetHeight;
+                const pageHeight = pdf.internal.pageSize.height * 2;
+                const contentHeight = element.offsetHeight * 2;
                 const scale = Math.min(pageHeight / contentHeight, 1);
 
                 if (scale < 1) {
