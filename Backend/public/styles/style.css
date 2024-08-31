@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mainBody {
+    padding: 10px;
+    width: 21cm;
+    height: 29.7cm;
+    min-height: 29.7cm;
+    margin: auto;
+    background-color: #ffffff;
+
+}
+
+.details-container {
+    padding: 15px;
+    position: relative;
+    background-color: aquamarine;
+    background: url('../photos/icon.jpg') no-repeat center center;
+    /* background-size: cover; */
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.details-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 50%);
+    mix-blend-mode: lighten;
+    z-index: 1;
+}
+
+.details-container>* {
+    position: relative;
+    z-index: 2;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.col {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.center-image {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* 
+.details-content {
+ padding: 10px;
+ border: 1px solid #ddd; 
+ border-radius: 5px; 
+ background-color: #fff;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+*/
+
+.lordimage {
+    width: 150px;
+    max-width: 150px;
+    height: 150px;
+    border-radius: 10%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.Profile-image {
+    width: 200px;
+    max-width: 200px;
+    height: 190px;
+    border-radius: 10%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.center-image-1 {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    /* margin: 0px; */
+    padding-bottom: 5px;
+}
+
+.details-list,
+.family-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.details-list li,
+.family-list li {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 8px;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
