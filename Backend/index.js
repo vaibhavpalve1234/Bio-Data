@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const multer = require('multer');
-const fs = require('fs');
 
 const app = express();
 const port = 3000;
@@ -15,20 +14,20 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
+// Set up multer for file uploads
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'public/photos')
+        cb(null, 'public/photos');
     },
     filename: function (req, file, cb) {
-        cb(null, file.originalname)
+        cb(null, file.originalname);
     }
 });
-
 const upload = multer({ storage: storage });
 
+// Initial bioData object
 let bioData = {
-    godImage:"",
+    godImage: "",
     profileImages: "", 
     personalInfo: {
         name: '',
@@ -85,10 +84,10 @@ app.post('/update-bio', upload.fields([{ name: 'profileImages', maxCount: 1 }, {
     const updatedInfo = req.body;
     if (req.files) {
         if (req.files.profileImages) {
-            updatedInfo.profileImages = req.files.profileImages[0].originalname
+            updatedInfo.profileImages = req.files.profileImages[0].originalname;
         }
         if (req.files.godImage) {
-            updatedInfo.godImage = req.files.godImage[0].originalname; // Assuming single god image
+            updatedInfo.godImage = req.files.godImage[0].originalname;
         }
     }
 
@@ -116,12 +115,60 @@ app.post('/update-bio', upload.fields([{ name: 'profileImages', maxCount: 1 }, {
             ...updatedInfo.preferences
         }
     };
-    console.log(bioData);
+
+    console.log('Updated bioData:', bioData);
     
-    // saveBioData(bioData);
     res.redirect('/show-bio');
 });
 
+app.get('/clear', (req, res) => {
+    // Reset bioData to its initial state
+    bioData = {
+        godImage: "",
+        profileImages: "", 
+        personalInfo: {
+            name: '',
+            dob: '',
+            birthTime: '',
+            weight: '',
+            height: '',
+            bloodGroup: '',
+            complexion: '',
+            placeOfBirth: '',
+            maritalStatus: '',
+            profileImage: ''
+        },
+        contacts: {
+            family: {
+                number: ''
+            },
+            personal: {
+                number: ''
+            }
+        },
+        professionalInfo: {
+            education: '',
+            companyName: '',
+            occupation: '',
+            workLocation: ''
+        },
+        familyInfo: {
+            fatherName: '',
+            fatherOccupation: '',
+            motherName: '',
+            olderBrother: '',
+            grandfather: '',
+            residentialAddress: '',
+            village: ''
+        },
+        preferences: {
+            hobbies: '',
+            favoriteActivities: '',
+            languagesKnown: ''
+        }
+    };
+    res.json({ success: true });
+});
 
 // Start server
 app.listen(port, () => {
