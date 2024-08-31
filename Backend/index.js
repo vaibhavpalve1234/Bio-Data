@@ -28,7 +28,7 @@ const upload = multer({ storage: storage });
 
 // Initial bioData object
 let bioData = {
-    godImage: "",
+    godImage: "icon.jpg",
     profileImages: "",
     personalInfo: {
         name: '',
