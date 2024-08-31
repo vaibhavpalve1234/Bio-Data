@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const multer = require('multer');
+const fs = require('fs');
 
 const app = express();
 const port = 3000;
@@ -28,7 +29,7 @@ const upload = multer({ storage: storage });
 // Initial bioData object
 let bioData = {
     godImage: "",
-    profileImages: "", 
+    profileImages: "",
     personalInfo: {
         name: '',
         dob: '',
@@ -117,7 +118,7 @@ app.post('/update-bio', upload.fields([{ name: 'profileImages', maxCount: 1 }, {
     };
 
     console.log('Updated bioData:', bioData);
-    
+
     res.redirect('/show-bio');
 });
 
@@ -125,7 +126,7 @@ app.get('/clear', (req, res) => {
     // Reset bioData to its initial state
     bioData = {
         godImage: "",
-        profileImages: "", 
+        profileImages: "",
         personalInfo: {
             name: '',
             dob: '',
@@ -167,6 +168,30 @@ app.get('/clear', (req, res) => {
             languagesKnown: ''
         }
     };
+
+    const photoDir = path.join(__dirname, 'public', 'photos');
+
+    function clearDirectory(directory) {
+        fs.readdir(directory, (err, files) => {
+            if (err) {
+                console.error('Error reading directory:', err);
+                return;
+            }
+
+            files.forEach(file => {
+                const filePath = path.join(directory, file);
+                fs.unlink(filePath, err => {
+                    if (err) {
+                        console.error('Error deleting file:', err);
+                    }
+                });
+            });
+        });
+    }
+
+    // Clear the photo directory
+    clearDirectory(photoDir);
+
     res.json({ success: true });
 });
 
