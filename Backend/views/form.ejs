@@ -11,174 +11,193 @@
 <body>
     <h1>Update Bio Data</h1>
     <form action="/update-bio" method="POST" enctype="multipart/form-data">
-        <h2>Personal Information</h2>
-        <label for="personalInfo[name]">Bride Full Name:</label>
-        <input type="text" id="personalInfo[name]" name="personalInfo[name]" value="<%= bio.personalInfo.name %>"
-            required><br>
+        <!-- Personal Information Section -->
+        <div id="personal-info" class="section">
+            <div class="section-header">
+                <h2>Personal Information</h2>
+                <!-- <button type="button" class="close-btn" onclick="hideSection('personal-info')">Close</button> -->
+            </div>
+            <label for="personalInfo[name]">Bride Full Name:</label>
+            <input type="text" id="personalInfo[name]" name="personalInfo[name]" value="<%= bio.personalInfo.name %>" required><br>
 
-        <label for="personalInfo[dob]">Date of Birth:</label>
-        <input type="date" id="personalInfo[dob]" name="personalInfo[dob]" value="<%= bio.personalInfo.dob %>"
-            required><br>
+            <label for="personalInfo[dob]">Date of Birth:</label>
+            <input type="date" id="personalInfo[dob]" name="personalInfo[dob]" value="<%= bio.personalInfo.dob %>" required><br>
 
-        <label for="personalInfo[birthTime]">Birth Time:</label>
-        <input type="time" id="personalInfo[birthTime]" name="personalInfo[birthTime]"
-            value="<%= bio.personalInfo.birthTime %>" required><br>
+            <label for="personalInfo[birthTime]">Birth Time:</label>
+            <input type="time" id="personalInfo[birthTime]" name="personalInfo[birthTime]" value="<%= bio.personalInfo.birthTime %>" required><br>
 
+            <label for="personalInfo[weight]">Weight:</label>
+            <input type="text" id="personalInfo[weight]" name="personalInfo[weight]" value="<%= bio.personalInfo.weight %>" required><br>
 
-        <label for="personalInfo[weight]">Weight:</label>
-        <input type="text" id="personalInfo[weight]" name="personalInfo[weight]" value="<%= bio.personalInfo.weight %>"
-            required><br>
+            <label for="personalInfo[height]">Height (in cm):</label>
+            <input type="text" id="personalInfo[height]" name="personalInfo[height]" value="<%= bio.personalInfo.height %>" required><br>
 
-        <label for="personalInfo[height]">Height (in cm):</label>
-        <input type="text" id="personalInfo[height]" name="personalInfo[height]" value="<%= bio.personalInfo.height %>"
-            required><br>
+            <label for="personalInfo[bloodGroup]">Blood Group:</label>
+            <select id="personalInfo[bloodGroup]" name="personalInfo[bloodGroup]" required>
+                <option value="">Select Blood Group</option>
+                <option value="O+" <%=bio.personalInfo.bloodGroup==='O+' ? 'selected' : '' %>>O+</option>
+                <option value="O-" <%=bio.personalInfo.bloodGroup==='O-' ? 'selected' : '' %>>O-</option>
+                <option value="A+" <%=bio.personalInfo.bloodGroup==='A+' ? 'selected' : '' %>>A+</option>
+                <option value="A-" <%=bio.personalInfo.bloodGroup==='A-' ? 'selected' : '' %>>A-</option>
+                <option value="B+" <%=bio.personalInfo.bloodGroup==='B+' ? 'selected' : '' %>>B+</option>
+                <option value="B-" <%=bio.personalInfo.bloodGroup==='B-' ? 'selected' : '' %>>B-</option>
+                <option value="AB+" <%=bio.personalInfo.bloodGroup==='AB+' ? 'selected' : '' %>>AB+</option>
+                <option value="AB-" <%=bio.personalInfo.bloodGroup==='AB-' ? 'selected' : '' %>>AB-</option>
+            </select><br>
 
-        <label for="personalInfo[bloodGroup]">Blood Group:</label>
-        <select id="personalInfo[bloodGroup]" name="personalInfo[bloodGroup]" required>
-            <option value="">Select Blood Group</option>
-            <option value="O+" <%=bio.personalInfo.bloodGroup==='O+' ? 'selected' : '' %>>O+</option>
-            <option value="O-" <%=bio.personalInfo.bloodGroup==='O-' ? 'selected' : '' %>>O-</option>
-            <option value="A+" <%=bio.personalInfo.bloodGroup==='A+' ? 'selected' : '' %>>A+</option>
-            <option value="A-" <%=bio.personalInfo.bloodGroup==='A-' ? 'selected' : '' %>>A-</option>
-            <option value="B+" <%=bio.personalInfo.bloodGroup==='B+' ? 'selected' : '' %>>B+</option>
-            <option value="B-" <%=bio.personalInfo.bloodGroup==='B-' ? 'selected' : '' %>>B-</option>
-            <option value="AB+" <%=bio.personalInfo.bloodGroup==='AB+' ? 'selected' : '' %>>AB+</option>
-            <option value="AB-" <%=bio.personalInfo.bloodGroup==='AB-' ? 'selected' : '' %>>AB-</option>
-        </select><br>
+            <label for="personalInfo[complexion]">Complexion:</label>
+            <select id="personalInfo[complexion]" name="personalInfo[complexion]" required>
+                <option value="">Select complexion</option>
+                <option value="fair" <%=bio.personalInfo.complexion==='fair' ? 'selected' : '' %>>Fair (Light skin with a pink or yellow undertone)</option>
+                <option value="medium" <%=bio.personalInfo.complexion==='medium' ? 'selected' : '' %>>Medium (Light to medium skin with a neutral or olive undertone)</option>
+                <option value="dark" <%=bio.personalInfo.complexion==='dark' ? 'selected' : '' %>>Dark (Deep brown to black skin with rich undertones)</option>
+                <option value="very-fair" <%=bio.personalInfo.complexion==='very-fair' ? 'selected' : '' %>>Very Fair (Paler than fair with a more translucent appearance)</option>
+                <option value="light" <%=bio.personalInfo.complexion==='light' ? 'selected' : '' %>>Light (Paler than medium with a cooler undertone)</option>
+                <option value="tan" <%=bio.personalInfo.complexion==='tan' ? 'selected' : '' %>>Tan (Golden or bronze skin with warm undertones)</option>
+                <option value="olive" <%=bio.personalInfo.complexion==='olive' ? 'selected' : '' %>>Olive (Greenish or yellow undertones)</option>
+                <option value="brown" <%=bio.personalInfo.complexion==='brown' ? 'selected' : '' %>>Brown (Medium to dark brown skin with various undertones)</option>
+                <option value="black" <%=bio.personalInfo.complexion==='black' ? 'selected' : '' %>>Black (Deep black skin with cool or warm undertones)</option>
+            </select><br>
 
+            <label for="personalInfo[maritalStatus]">Marital Status:</label>
+            <select id="personalInfo[maritalStatus]" name="personalInfo[maritalStatus]" required>
+                <option value="">Select your marital status</option>
+                <option value="single" <%=bio.personalInfo.maritalStatus==='single' ? 'selected' : '' %>>Single</option>
+                <option value="married" <%=bio.personalInfo.maritalStatus==='married' ? 'selected' : '' %>>Married</option>
+                <option value="divorced" <%=bio.personalInfo.maritalStatus==='divorced' ? 'selected' : '' %>>Divorced</option>
+                <option value="widowed" <%=bio.personalInfo.maritalStatus==='widowed' ? 'selected' : '' %>>Widowed</option>
+            </select><br>
 
-        <label for="personalInfo[complexion]">Complexion:</label>
-        <select id="personalInfo[complexion]" name="personalInfo[complexion]" required>
-            <option value="">Select complexion</option>
-            <option value="fair" <%=bio.personalInfo.complexion==='fair' ? 'selected' : '' %>>Fair (Light skin with a
-                pink or yellow undertone)</option>
-            <option value="medium" <%=bio.personalInfo.complexion==='medium' ? 'selected' : '' %>>Medium (Light to
-                medium skin with a neutral or olive undertone)</option>
-            <option value="dark" <%=bio.personalInfo.complexion==='dark' ? 'selected' : '' %>>Dark (Deep brown to black
-                skin with rich undertones)</option>
-            <option value="very-fair" <%=bio.personalInfo.complexion==='very-fair' ? 'selected' : '' %>>Very Fair (Paler
-                than fair with a more translucent appearance)</option>
-            <option value="light" <%=bio.personalInfo.complexion==='light' ? 'selected' : '' %>>Light (Paler than medium
-                with a cooler undertone)</option>
-            <option value="tan" <%=bio.personalInfo.complexion==='tan' ? 'selected' : '' %>>Tan (Golden or bronze skin
-                with warm undertones)</option>
-            <option value="olive" <%=bio.personalInfo.complexion==='olive' ? 'selected' : '' %>>Olive (Greenish or
-                yellow undertones)</option>
-            <option value="brown" <%=bio.personalInfo.complexion==='brown' ? 'selected' : '' %>>Brown (Medium to dark
-                brown skin with various undertones)</option>
-            <option value="black" <%=bio.personalInfo.complexion==='black' ? 'selected' : '' %>>Black (Deep black skin
-                with cool or warm undertones)</option>
-        </select><br>
+            <label for="personalInfo[placeOfBirth]">Place of Birth:</label>
+            <input type="text" id="personalInfo[placeOfBirth]" name="personalInfo[placeOfBirth]" value="<%= bio.personalInfo.placeOfBirth %>" required><br>
 
-        <label for="personalInfo[maritalStatus]">Marital Status:</label>
-        <select id="personalInfo[maritalStatus]" name="personalInfo[maritalStatus]" required>
-            <option value="">Select your marital status</option>
-            <option value="single" <%=bio.personalInfo.maritalStatus==='single' ? 'selected' : '' %>>Single</option>
-            <option value="married" <%=bio.personalInfo.maritalStatus==='married' ? 'selected' : '' %>>Married</option>
-            <option value="divorced" <%=bio.personalInfo.maritalStatus==='divorced' ? 'selected' : '' %>>Divorced
-            </option>
-            <option value="widowed" <%=bio.personalInfo.maritalStatus==='widowed' ? 'selected' : '' %>>Widowed</option>
-        </select><br>
-
-        <label for="personalInfo[placeOfBirth]">Place of Birth:</label>
-        <input type="text" id="personalInfo[placeOfBirth]" name="personalInfo[placeOfBirth]"
-            value="<%= bio.personalInfo.placeOfBirth %>" required><br>
-        <!-- Hidden Additional Sections -->
-        <div id="more-info" class="hidden">
-            <h2>Contact Information</h2>
-            <label for="contacts[family][number]">Family Contact Number:</label>
-            <input type="text" id="contacts[family][number]" name="contacts[family][number]"
-                value="<%= bio.contacts.family.number %>" required><br>
-
-            <label for="contacts[personal][number]">Personal Contact Number:</label>
-            <input type="text" id="contacts[personal][number]" name="contacts[personal][number]"
-                value="<%= bio.contacts.personal.number %>" required><br>
-
-            <h2>Professional Information</h2>
-            <label for="professionalInfo[education]">Education:</label>
-            <input type="text" id="professionalInfo[education]" name="professionalInfo[education]"
-                value="<%= bio.professionalInfo.education %>" required><br>
-
-            <label for="professionalInfo[companyName]">Company Name:</label>
-            <input type="text" id="professionalInfo[companyName]" name="professionalInfo[companyName]"
-                value="<%= bio.professionalInfo.companyName %>" required><br>
-
-            <label for="professionalInfo[occupation]">Occupation:</label>
-            <input type="text" id="professionalInfo[occupation]" name="professionalInfo[occupation]"
-                value="<%= bio.professionalInfo.occupation %>" required><br>
-
-            <label for="professionalInfo[workLocation]">Work Location:</label>
-            <input type="text" id="professionalInfo[workLocation]" name="professionalInfo[workLocation]"
-                value="<%= bio.professionalInfo.workLocation %>" required><br>
-
-            <h2>Family Information</h2>
-            <label for="familyInfo[fatherName]">Father's Name:</label>
-            <input type="text" id="familyInfo[fatherName]" name="familyInfo[fatherName]"
-                value="<%= bio.familyInfo.fatherName %>" required><br>
-
-            <label for="familyInfo[fatherOccupation]">Father's Occupation:</label>
-            <input type="text" id="familyInfo[fatherOccupation]" name="familyInfo[fatherOccupation]"
-                value="<%= bio.familyInfo.fatherOccupation %>" required><br>
-
-            <label for="familyInfo[motherName]">Mother's Name:</label>
-            <input type="text" id="familyInfo[motherName]" name="familyInfo[motherName]"
-                value="<%= bio.familyInfo.motherName %>" required><br>
-
-            <label for="familyInfo[olderBrother]">Older Brother:</label>
-            <input type="text" id="familyInfo[olderBrother]" name="familyInfo[olderBrother]"
-                value="<%= bio.familyInfo.olderBrother %>" required><br>
-
-            <label for="familyInfo[grandfather]">Grandfather:</label>
-            <input type="text" id="familyInfo[grandfather]" name="familyInfo[grandfather]"
-                value="<%= bio.familyInfo.grandfather %>" required><br>
-
-            <label for="familyInfo[residentialAddress]">Residential Address:</label>
-            <input type="text" id="familyInfo[residentialAddress]" name="familyInfo[residentialAddress]"
-                value="<%= bio.familyInfo.residentialAddress %>" required><br>
-
-            <label for="familyInfo[village]">Village:</label>
-            <input type="text" id="familyInfo[village]" name="familyInfo[village]" value="<%= bio.familyInfo.village %>"
-                required><br>
-
-            <h2>Personal Preferences and Hobbies</h2>
-            <label for="preferences[hobbies]">Hobbies:</label>
-            <input type="text" id="preferences[hobbies]" name="preferences[hobbies]"
-                value="<%= bio.preferences.hobbies %>" required><br>
-
-            <label for="preferences[favoriteActivities]">Favorite Activities:</label>
-            <input type="text" id="preferences[favoriteActivities]" name="preferences[favoriteActivities]"
-                value="<%= bio.preferences.favoriteActivities %>" required><br>
-
-            <label for="preferences[languagesKnown]">Languages Known:</label>
-            <input type="text" id="preferences[languagesKnown]" name="preferences[languagesKnown]"
-                value="<%= bio.preferences.languagesKnown %>" required><br>
-
-            <!-- Profile Image (Multiple Upload) -->
-            <label for="profileImages">Profile Images:</label>
-            <input type="file" id="profileImages" name="profileImages" multiple>
-
-            <!-- God Image -->
-            <label for="godImage">God Image:</label>
-            <input type="file" id="godImage" name="godImage">
-
+            <button type="button" id="show-contact-btn">Show Contact Information</button>
         </div>
 
-        <button type="button" id="show-more-btn">Show More</button>
+        <!-- Contact Information Section -->
+        <div id="contact-info" class="section hidden">
+            <div class="section-header">
+                <h2>Contact Information</h2>
+                <button type="button" class="close-btn" onclick="hideSection('contact-info')">Close</button>
+            </div>
+            <label for="contacts[family][number]">Family Contact Number:</label>
+            <input type="text" id="contacts[family][number]" name="contacts[family][number]" value="<%= bio.contacts.family.number %>" required><br>
+
+            <label for="contacts[personal][number]">Personal Contact Number:</label>
+            <input type="text" id="contacts[personal][number]" name="contacts[personal][number]" value="<%= bio.contacts.personal.number %>" required><br>
+
+            <button type="button" id="show-professional-btn">Show Professional Information</button>
+        </div>
+
+        <!-- Professional Information Section -->
+        <div id="professional-info" class="section hidden">
+            <div class="section-header">
+                <h2>Professional Information</h2>
+                <button type="button" class="close-btn" onclick="hideSection('professional-info')">Close</button>
+            </div>
+            <label for="professionalInfo[education]">Education:</label>
+            <input type="text" id="professionalInfo[education]" name="professionalInfo[education]" value="<%= bio.professionalInfo.education %>" required><br>
+
+            <label for="professionalInfo[companyName]">Company Name:</label>
+            <input type="text" id="professionalInfo[companyName]" name="professionalInfo[companyName]" value="<%= bio.professionalInfo.companyName %>" required><br>
+
+            <label for="professionalInfo[occupation]">Occupation:</label>
+            <input type="text" id="professionalInfo[occupation]" name="professionalInfo[occupation]" value="<%= bio.professionalInfo.occupation %>" required><br>
+
+            <label for="professionalInfo[workLocation]">Work Location:</label>
+            <input type="text" id="professionalInfo[workLocation]" name="professionalInfo[workLocation]" value="<%= bio.professionalInfo.workLocation %>" required><br>
+
+            <button type="button" id="show-family-btn">Show Family Information</button>
+        </div>
+
+        <!-- Family Information Section -->
+        <div id="family-info" class="section hidden">
+            <div class="section-header">
+                <h2>Family Information</h2>
+                <button type="button" class="close-btn" onclick="hideSection('family-info')">Close</button>
+            </div>
+            <label for="familyInfo[fatherName]">Father's Name:</label>
+            <input type="text" id="familyInfo[fatherName]" name="familyInfo[fatherName]" value="<%= bio.familyInfo.fatherName %>" required><br>
+
+            <label for="familyInfo[fatherOccupation]">Father's Occupation:</label>
+            <input type="text" id="familyInfo[fatherOccupation]" name="familyInfo[fatherOccupation]" value="<%= bio.familyInfo.fatherOccupation %>" required><br>
+
+            <label for="familyInfo[motherName]">Mother's Name:</label>
+            <input type="text" id="familyInfo[motherName]" name="familyInfo[motherName]" value="<%= bio.familyInfo.motherName %>" required><br>
+
+            <label for="familyInfo[olderBrother]">Older Brother:</label>
+            <input type="text" id="familyInfo[olderBrother]" name="familyInfo[olderBrother]" value="<%= bio.familyInfo.olderBrother %>" required><br>
+
+            <label for="familyInfo[grandfather]">Grandfather:</label>
+            <input type="text" id="familyInfo[grandfather]" name="familyInfo[grandfather]" value="<%= bio.familyInfo.grandfather %>" required><br>
+
+            <label for="familyInfo[residentialAddress]">Residential Address:</label>
+            <input type="text" id="familyInfo[residentialAddress]" name="familyInfo[residentialAddress]" value="<%= bio.familyInfo.residentialAddress %>" required><br>
+
+            <label for="familyInfo[village]">Village:</label>
+            <input type="text" id="familyInfo[village]" name="familyInfo[village]" value="<%= bio.familyInfo.village %>" required><br>
+
+            <button type="button" id="show-preferences-btn">Show Personal Preferences</button>
+        </div>
+
+        <!-- Personal Preferences and Hobbies Section -->
+        <div id="preferences-info" class="section hidden">
+            <div class="section-header">
+                <h2>Personal Preferences and Hobbies</h2>
+                <button type="button" class="close-btn" onclick="hideSection('preferences-info')">Close</button>
+            </div>
+            <label for="preferences[hobbies]">Hobbies:</label>
+            <input type="text" id="preferences[hobbies]" name="preferences[hobbies]" value="<%= bio.preferences.hobbies %>" required><br>
+
+            <label for="preferences[favoriteActivities]">Favorite Activities:</label>
+            <input type="text" id="preferences[favoriteActivities]" name="preferences[favoriteActivities]" value="<%= bio.preferences.favoriteActivities %>" required><br>
+
+            <label for="preferences[languagesKnown]">Languages Known:</label>
+            <input type="text" id="preferences[languagesKnown]" name="preferences[languagesKnown]" value="<%= bio.preferences.languagesKnown %>" required><br>
+
+            <label for="profileImages">Profile Images:</label>
+            <input type="file" id="profileImages" name="profileImages" multiple><br>
+
+            <label for="godImage">God Image:</label>
+            <input type="file" id="godImage" name="godImage"><br>
+        </div>
         <button type="submit">Update Bio Data</button>
     </form>
 
     <script>
-        document.getElementById('show-more-btn').addEventListener('click', function () {
-            var moreInfo = document.getElementById('more-info');
-            var btn = document.getElementById('show-more-btn');
-            if (moreInfo.classList.contains('hidden')) {
-                moreInfo.classList.remove('hidden');
-                btn.textContent = 'Show Less';
-            } else {
-                moreInfo.classList.add('hidden');
-                btn.textContent = 'Show More';
-            }
+        document.getElementById('show-contact-btn').addEventListener('click', function () {
+            var contactInfo = document.getElementById('contact-info');
+            contactInfo.classList.toggle('hidden');
         });
+
+        document.getElementById('show-professional-btn').addEventListener('click', function () {
+            var professionalInfo = document.getElementById('professional-info');
+            professionalInfo.classList.toggle('hidden');
+        });
+
+        document.getElementById('show-family-btn').addEventListener('click', function () {
+            var familyInfo = document.getElementById('family-info');
+            familyInfo.classList.toggle('hidden');
+        });
+
+        document.getElementById('show-preferences-btn').addEventListener('click', function () {
+            var preferencesInfo = document.getElementById('preferences-info');
+            preferencesInfo.classList.toggle('hidden');
+        });
+
+        function hideSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            section.classList.add('hidden');
+        }
+
+        function hideAllSections() {
+            document.querySelectorAll('.section:not(#personal-info)').forEach(function (section) {
+                section.classList.add('hidden');
+            });
+        }
+
+        // Initially hide all sections except the first one
+        hideAllSections();
     </script>
 </body>
 
