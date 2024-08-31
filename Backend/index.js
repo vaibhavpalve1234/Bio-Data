@@ -117,8 +117,6 @@ app.post('/update-bio', upload.fields([{ name: 'profileImages', maxCount: 1 }, {
         }
     };
 
-    console.log('Updated bioData:', bioData);
-
     res.redirect('/show-bio');
 });
 

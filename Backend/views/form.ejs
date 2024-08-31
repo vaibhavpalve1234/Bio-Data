@@ -29,18 +29,18 @@
 
             <label for="personalInfo[birthTime]">Birth Time:</label>
             <input type="time" id="personalInfo[birthTime]" name="personalInfo[birthTime]"
-                value="<%= bio.personalInfo.birthTime %>" required><br>
+                value="<%= bio.personalInfo.birthTime %>" ><br>
 
             <label for="personalInfo[weight]">Weight:</label>
             <input type="text" id="personalInfo[weight]" name="personalInfo[weight]"
-                value="<%= bio.personalInfo.weight %>" required><br>
+                value="<%= bio.personalInfo.weight %>" ><br>
 
             <label for="personalInfo[height]">Height (in cm):</label>
             <input type="text" id="personalInfo[height]" name="personalInfo[height]"
-                value="<%= bio.personalInfo.height %>" required><br>
+                value="<%= bio.personalInfo.height %>" ><br>
 
             <label for="personalInfo[bloodGroup]">Blood Group:</label>
-            <select id="personalInfo[bloodGroup]" name="personalInfo[bloodGroup]" required>
+            <select id="personalInfo[bloodGroup]" name="personalInfo[bloodGroup]" >
                 <option value="">Select Blood Group</option>
                 <option value="O+" <%=bio.personalInfo.bloodGroup==='O+' ? 'selected' : '' %>>O+</option>
                 <option value="O-" <%=bio.personalInfo.bloodGroup==='O-' ? 'selected' : '' %>>O-</option>
@@ -53,7 +53,7 @@
             </select><br>
 
             <label for="personalInfo[complexion]">Complexion:</label>
-            <select id="personalInfo[complexion]" name="personalInfo[complexion]" required>
+            <select id="personalInfo[complexion]" name="personalInfo[complexion]" >
                 <option value="">Select complexion</option>
                 <option value="fair" <%=bio.personalInfo.complexion==='fair' ? 'selected' : '' %>>Fair (Light skin with
                     a pink or yellow undertone)</option>
@@ -76,7 +76,7 @@
             </select><br>
 
             <label for="personalInfo[maritalStatus]">Marital Status:</label>
-            <select id="personalInfo[maritalStatus]" name="personalInfo[maritalStatus]" required>
+            <select id="personalInfo[maritalStatus]" name="personalInfo[maritalStatus]" >
                 <option value="">Select your marital status</option>
                 <option value="single" <%=bio.personalInfo.maritalStatus==='single' ? 'selected' : '' %>>Single</option>
                 <option value="married" <%=bio.personalInfo.maritalStatus==='married' ? 'selected' : '' %>>Married
@@ -89,7 +89,7 @@
 
             <label for="personalInfo[placeOfBirth]">Place of Birth:</label>
             <input type="text" id="personalInfo[placeOfBirth]" name="personalInfo[placeOfBirth]"
-                value="<%= bio.personalInfo.placeOfBirth %>" required><br>
+                value="<%= bio.personalInfo.placeOfBirth %>" ><br>
 
             <button type="button" id="show-contact-btn">Show Contact Information</button>
         </div>
@@ -102,11 +102,11 @@
             </div>
             <label for="contacts[family][number]">Family Contact Number:</label>
             <input type="text" id="contacts[family][number]" name="contacts[family][number]"
-                value="<%= bio.contacts.family.number %>" required><br>
+                value="<%= bio.contacts.family.number %>" ><br>
 
             <label for="contacts[personal][number]">Personal Contact Number:</label>
             <input type="text" id="contacts[personal][number]" name="contacts[personal][number]"
-                value="<%= bio.contacts.personal.number %>" required><br>
+                value="<%= bio.contacts.personal.number %>" ><br>
 
             <button type="button" id="show-professional-btn">Show Professional Information</button>
         </div>
@@ -119,19 +119,19 @@
             </div>
             <label for="professionalInfo[education]">Education:</label>
             <input type="text" id="professionalInfo[education]" name="professionalInfo[education]"
-                value="<%= bio.professionalInfo.education %>" required><br>
+                value="<%= bio.professionalInfo.education %>" ><br>
 
             <label for="professionalInfo[companyName]">Company Name:</label>
             <input type="text" id="professionalInfo[companyName]" name="professionalInfo[companyName]"
-                value="<%= bio.professionalInfo.companyName %>" required><br>
+                value="<%= bio.professionalInfo.companyName %>" ><br>
 
             <label for="professionalInfo[occupation]">Occupation:</label>
             <input type="text" id="professionalInfo[occupation]" name="professionalInfo[occupation]"
-                value="<%= bio.professionalInfo.occupation %>" required><br>
+                value="<%= bio.professionalInfo.occupation %>" ><br>
 
             <label for="professionalInfo[workLocation]">Work Location:</label>
             <input type="text" id="professionalInfo[workLocation]" name="professionalInfo[workLocation]"
-                value="<%= bio.professionalInfo.workLocation %>" required><br>
+                value="<%= bio.professionalInfo.workLocation %>" ><br>
 
             <button type="button" id="show-family-btn">Show Family Information</button>
         </div>
@@ -144,19 +144,19 @@
             </div>
             <label for="familyInfo[fatherName]">Father's Name:</label>
             <input type="text" id="familyInfo[fatherName]" name="familyInfo[fatherName]"
-                value="<%= bio.familyInfo.fatherName %>" required><br>
+                value="<%= bio.familyInfo.fatherName %>" ><br>
 
             <label for="familyInfo[fatherOccupation]">Father's Occupation:</label>
             <input type="text" id="familyInfo[fatherOccupation]" name="familyInfo[fatherOccupation]"
-                value="<%= bio.familyInfo.fatherOccupation %>" required><br>
+                value="<%= bio.familyInfo.fatherOccupation %>" ><br>
 
             <label for="familyInfo[motherName]">Mother's Name:</label>
             <input type="text" id="familyInfo[motherName]" name="familyInfo[motherName]"
-                value="<%= bio.familyInfo.motherName %>" required><br>
+                value="<%= bio.familyInfo.motherName %>" ><br>
 
             <label for="familyInfo[motherOccupation]">mother's Occupation:</label>
             <input type="text" id="familyInfo[motherOccupation]" name="familyInfo[motherOccupation]"
-                value="<%= bio.familyInfo.motherOccupation %>" required><br>
+                value="<%= bio.familyInfo.motherOccupation %>" ><br>
             <!-- Existing fields -->
 
             <label for="numberOfBrothers">Number of Brothers:</label>
@@ -187,15 +187,15 @@
 
             <label for="familyInfo[grandfather]">Grandfather:</label>
             <input type="text" id="familyInfo[grandfather]" name="familyInfo[grandfather]"
-                value="<%= bio.familyInfo.grandfather %>" required><br>
+                value="<%= bio.familyInfo.grandfather %>" ><br>
 
             <label for="familyInfo[residentialAddress]">Residential Address:</label>
             <input type="text" id="familyInfo[residentialAddress]" name="familyInfo[residentialAddress]"
-                value="<%= bio.familyInfo.residentialAddress %>" required><br>
+                value="<%= bio.familyInfo.residentialAddress %>" ><br>
 
             <label for="familyInfo[village]">Village:</label>
             <input type="text" id="familyInfo[village]" name="familyInfo[village]" value="<%= bio.familyInfo.village %>"
-                required><br>
+                ><br>
 
             <button type="button" id="show-preferences-btn">Show Personal Preferences</button>
         </div>
@@ -209,18 +209,18 @@
             </div>
             <label for="preferences[hobbies]">Hobbies:</label>
             <input type="text" id="preferences[hobbies]" name="preferences[hobbies]"
-                value="<%= bio.preferences.hobbies %>" required><br>
+                value="<%= bio.preferences.hobbies %>" ><br>
 
             <label for="preferences[favoriteActivities]">Favorite Activities:</label>
             <input type="text" id="preferences[favoriteActivities]" name="preferences[favoriteActivities]"
-                value="<%= bio.preferences.favoriteActivities %>" required><br>
+                value="<%= bio.preferences.favoriteActivities %>" ><br>
 
             <label for="preferences[languagesKnown]">Languages Known:</label>
             <input type="text" id="preferences[languagesKnown]" name="preferences[languagesKnown]"
-                value="<%= bio.preferences.languagesKnown %>" required><br>
+                value="<%= bio.preferences.languagesKnown %>" ><br>
 
             <label for="profileImages">Profile Images:</label>
-            <input type="file" id="profileImages" name="profileImages" multiple required><br>
+            <input type="file" id="profileImages" name="profileImages" multiple ><br>
 
             <label for="godImage">God Image:</label>
             <input type="file" id="godImage" name="godImage"><br>
