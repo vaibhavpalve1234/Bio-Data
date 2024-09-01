@@ -69,7 +69,8 @@ let bioData = {
         hobbies: '',
         favoriteActivities: '',
         languagesKnown: ''
-    }
+    },
+    extraImages: []
 };
 
 // Routes
@@ -81,14 +82,22 @@ app.get('/', (req, res) => {
     res.render('form', { bio: bioData });
 });
 
-app.post('/update-bio', upload.fields([{ name: 'profileImages', maxCount: 1 }, { name: 'godImage', maxCount: 1 }]), (req, res) => {
+app.post('/update-bio', upload.fields([{ name: 'profileImages', maxCount: 1 }, { name: 'godImage', maxCount: 1 }, {name:"extraImages", maxCount: 5}]), (req, res) => {
     const updatedInfo = req.body;
+    
     if (req.files) {
         if (req.files.profileImages) {
             updatedInfo.profileImages = req.files.profileImages[0].originalname;
         }
         if (req.files.godImage) {
             updatedInfo.godImage = req.files.godImage[0].originalname;
+        }
+        if (req.files.extraImages) {
+            updatedInfo.extraImages = req.files.extraImages.map(item => {
+                return {
+                    originalname: item.originalname
+                };
+            });
         }
     }
 
@@ -116,7 +125,6 @@ app.post('/update-bio', upload.fields([{ name: 'profileImages', maxCount: 1 }, {
             ...updatedInfo.preferences
         }
     };
-
     res.redirect('/show-bio');
 });
 

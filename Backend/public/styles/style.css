@@ -139,3 +139,57 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+:root {
+    --gallery-gap: 20px;
+    --gallery-item-size: calc(100% / 3 - var(--gallery-gap));
+    --gallery-hover-scale: 1.05;
+    --gallery-border-radius: 15px;
+    --gallery-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--gallery-gap);
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: var(--gallery-border-radius);
+    box-shadow: var(--gallery-box-shadow);
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--gallery-border-radius);
+    box-shadow: var(--gallery-box-shadow);
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--gallery-border-radius);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(var(--gallery-hover-scale));
+}
+
+.gallery-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: var(--gallery-border-radius);
+}
+
+.gallery-item:hover::before {
+    opacity: 1;
+}
