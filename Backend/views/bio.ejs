@@ -295,15 +295,16 @@
           <% } %>
 
           <% if (bio.extraImages && bio.extraImages.length > 0) { %>
-                <h2>Extra Images:</h2>
-                <div class="gallery-container">
-                    <% bio.extraImages.forEach(image => { %>
-                    <div class="gallery-item">
-                        <img src="/photos/<%= image.originalname %>" alt="Extra Image" class="gallery-image" />
-                    </div>
-                    <% }) %>
+            <h2>Extra Images:</h2>
+            <div class="gallery-container">
+              <% bio.extraImages.forEach(image => { %>
+                <div class="gallery-item">
+                  <img src="/photos/<%= image.originalname %>" alt="Extra Image" class="gallery-image" />
                 </div>
-                <% } %>
+              <% }) %>
+            </div>
+          <% } %>
+          
                 
         </article>
       </section>
