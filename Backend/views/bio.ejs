@@ -68,12 +68,16 @@
                 </li>
                 <% } %>
                 <% if (bio.personalInfo.dob) { %>
-                <li>
-                  <span class="icon"><i class="fas fa-birthday-cake"></i></span
-                  ><strong>Date of Birth: </strong>
-                  <%= bio.personalInfo.dob %>
-                </li>
-                <% } %>
+                  <li>
+                    <span class="icon"><i class="fas fa-birthday-cake"></i></span>
+                    <strong>Date of Birth: </strong>
+                    <%= new Date(bio.personalInfo.dob).toLocaleDateString('en-GB', {
+                      day: '2-digit',
+                      month: '2-digit',
+                      year: 'numeric'
+                    }) %>
+                  </li>
+                  <% } %>                  
                 <% if (bio.personalInfo.birthTime) { %>
                 <li>
                   <span class="icon"><i class="far fa-clock"></i></span
