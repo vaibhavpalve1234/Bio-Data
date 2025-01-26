@@ -3,9 +3,18 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const fs = require('fs');
+const session = require('express-session');
+
 
 const app = express();
 const port = 3000;
+
+app.use(session({
+    secret: "abc@123",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // Set to true if using HTTPS
+}));
 
 // Set up EJS as the template engine
 app.set('view engine', 'ejs');
@@ -78,8 +87,16 @@ app.get('/show-bio', (req, res) => {
     res.render('bio', { bio: bioData });
 });
 
+
+app.post('/set-language', (req, res) => {
+    const selectedLanguage = req.body.language;
+    req.session.language = selectedLanguage;
+    res.redirect('/');
+});
+
 app.get('/', (req, res) => {
-    res.render('form', { bio: bioData });
+    const selectedLanguage = req.session.language || 'english'; // Default to English if no language is selected
+    res.render('form', { bio: bioData, language: selectedLanguage });
 });
 
 app.post('/update-bio', upload.fields([{ name: 'profileImages', maxCount: 1 }, { name: 'godImage', maxCount: 1 }, {name:"extraImages", maxCount: 5}]), (req, res) => {
